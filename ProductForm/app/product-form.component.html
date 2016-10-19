@@ -12,13 +12,17 @@
     <form>
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" required [(ngModel)]="product.name" name="name">
-            <p>TODO: remove this: {{product.name}}</p>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="product.name" name="name" #spy>
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                Name field is required
+            </div>
+            <p>TODO: remove this: {{spy.className}}</p>
         </div>
         <div class="form-group">
             <label for="description">Description:</label>
             <input type="text" class="form-control" id="description" [(ngModel)]="product.description" name="description">
         </div>
+        <button type="button" class="btn btn-default" (click)="newProduct()">New Product</button>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
 </div>

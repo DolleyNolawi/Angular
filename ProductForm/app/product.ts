@@ -9,4 +9,6 @@ export class Product{
         public category: string,
         public description?: string
     ) {  }
+
+
 }

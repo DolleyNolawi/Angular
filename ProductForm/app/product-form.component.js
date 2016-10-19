@@ -22,6 +22,15 @@ var ProductFormComponent = (function () {
     }
     ProductFormComponent.prototype.onSubmit = function () { this.submitted = true; };
     Object.defineProperty(ProductFormComponent.prototype, "diagnostic", {
+        /*
+            active = true;
+        
+            newProduct() {
+                this.product = new Product(42, '', '' , '');
+                this.active = false;
+                setTimeout(() => this.active = true, 0);
+            }
+        */
         // TODO: Remove this when we're done
         get: function () { return JSON.stringify(this.product); },
         enumerable: true,
