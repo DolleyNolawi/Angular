@@ -11,20 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
-        this.clickMessage = '';
-        this.values = '';
-        this.values1 = '';
     }
-    AppComponent.prototype.onClickMe = function () {
-        this.clickMessage = 'You are my hero!';
-    };
-    AppComponent.prototype.onKey = function (value) {
-        this.values1 += value + ' | ';
-    };
     AppComponent = __decorate([
         core_1.Component({
-            selector: 'click-me',
-            template: "\n    <input #box (keyup)=\"0\">\n    <p>{{box.value}}</p>\n    \n    <input #enter (keyup.enter) = \"values=enter.value\"/>\n    <p>{{values}}</p>\n    \n    <input #box1 (keyup)=\"onKey(box1.value)\">\n    <p>{{values1}}</p>\n    \n    <button (click)=\"onClickMe()\">Click me!</button>\n    {{clickMessage}}"
+            selector: 'my-app',
+            template: '<product-form></product-form>'
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
