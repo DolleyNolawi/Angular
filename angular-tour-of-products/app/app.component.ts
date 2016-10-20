@@ -71,30 +71,16 @@ const PRODUCTS: Product[] = [
     selector: 'my-app',
     template:`
   <h1>{{title}}</h1>
-  <!--<h2>{{product.name}} details!</h2>-->
-  <!--<div><label>id: </label>{{product.id}}</div>-->
-  <!--<div>-->
-    <!--<label>name: </label>-->
-    <!--&lt;!&ndash;<input value="{{product.name}}" placeholder="name">&ndash;&gt;-->
-    <!--<input [(ngModel)]="product.name" placeholder="name">-->
-  <!--</div>  -->
-  
-  <div *ngIf="selectedProduct">
-  <h2>{{selectedProduct.name}} details!</h2>
-  <div><label>id: </label>{{selectedProduct.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="selectedProduct.name" placeholder="name"/>
-  </div>
-  </div>
-
-
-  <h2>My Products</h2>
+    <h2>My Products</h2>
     <ul class="products">
-    <li *ngFor="let product of products"  [class.selected]="product === selectedProduct" (click)="onSelect(product)">
+    <li *ngFor="let product of products"  
+        [class.selected]="product === selectedProduct" 
+        (click)="onSelect(product)">
         <span class="badge">{{product.id}}</span> {{product.name}}
      </li>
-    </ul>       
+    </ul>  
+    <my-product-detail [product]="selectedProduct"></my-product-detail>
+ 
   `
 
 })
@@ -102,10 +88,7 @@ export class AppComponent {
   title = 'Tour of Products:';
     products = PRODUCTS;
     selectedProduct : Product;
-    product: Product = {
-        id: 1,
-        name: 'Cars'
-    };
+
 
     onSelect(product: Product): void {
         this.selectedProduct = product;
