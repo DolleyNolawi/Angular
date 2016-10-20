@@ -1,19 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Product} from "./product";
+import { ProductService } from './product.service';
 
-
-const PRODUCTS: Product[] = [
-    { id: 11, name: 'Soap' },
-    { id: 12, name: 'Laptop' },
-    { id: 13, name: 'Bombasto' },
-    { id: 14, name: 'Celeritas' },
-    { id: 15, name: 'Magneta' },
-    { id: 16, name: 'RubberMan' },
-    { id: 17, name: 'Dynama' },
-    { id: 18, name: 'Dr IQ' },
-    { id: 19, name: 'Magma' },
-    { id: 20, name: 'Mobile phones' }
-];
 
 @Component({
     styles: [`
@@ -65,8 +53,7 @@ const PRODUCTS: Product[] = [
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }
-`],
-
+`],  providers : [ProductService],
 
     selector: 'my-app',
     template:`
@@ -84,11 +71,18 @@ const PRODUCTS: Product[] = [
   `
 
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'Tour of Products:';
-    products = PRODUCTS;
+    products : Product[];
     selectedProduct : Product;
 
+    constructor(private productService: ProductService) { }
+    getProducts(): void {
+        this.productService.getProducts().then(products => this.products = products);
+    }
+    ngOnInit(): void {
+        this.getProducts();
+    }
 
     onSelect(product: Product): void {
         this.selectedProduct = product;
