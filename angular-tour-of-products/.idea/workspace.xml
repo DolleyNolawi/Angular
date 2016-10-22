@@ -240,7 +240,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../angular2-pieps" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -318,16 +318,16 @@
       <workItem from="1476884132111" duration="25613000" />
       <workItem from="1477056527927" duration="193000" />
       <workItem from="1477102896825" duration="9583000" />
-      <workItem from="1477142914837" duration="1859000" />
+      <workItem from="1477142914837" duration="2484000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37248000" />
+    <option name="totallyTimeSpent" value="37873000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="572" y="13" width="787" height="706" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30914825" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3138781" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
