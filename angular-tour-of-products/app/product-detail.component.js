@@ -12,20 +12,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by Nelly on 10/19/2016.
  */
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var common_1 = require('@angular/common');
+var product_service_1 = require('./product.service');
 var Product_1 = require('./Product');
 var ProductDetailComponent = (function () {
-    function ProductDetailComponent() {
+    function ProductDetailComponent(productService, route, location) {
+        this.productService = productService;
+        this.route = route;
+        this.location = location;
     }
+    ProductDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params.forEach(function (params) {
+            var id = +params['id'];
+            _this.productService.getProduct(id)
+                .then(function (product) { return _this.product = product; });
+        });
+    };
+    ProductDetailComponent.prototype.goBack = function () {
+        this.location.back();
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Product_1.Product)
     ], ProductDetailComponent.prototype, "product", void 0);
     ProductDetailComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'my-product-detail',
-            template: "\n  <div *ngIf=\"product\">\n    <h2>{{product.name}} details!</h2>\n    <div><label>id: </label>{{product.id}}</div>\n    <div>\n      <label>name: </label>\n      <input [(ngModel)]=\"product.name\" placeholder=\"name\"/>\n    </div>\n  </div>\n"
+            templateUrl: 'product-detail.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [product_service_1.ProductService, router_1.ActivatedRoute, common_1.Location])
     ], ProductDetailComponent);
     return ProductDetailComponent;
 }());

@@ -9,12 +9,28 @@ import { ProductsComponent } from './products.component';
 import { ProductService } from './product.service';
 import { DashboardComponent } from './dashboard.component';
 
+
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
-          {
+        {
+            path: 'dashboard',
+            component: DashboardComponent
+        },
+        {
+            path: 'detail/:id',
+            component: ProductDetailComponent
+        },
+
+        {
+            path: '',
+            redirectTo: '/dashboard',
+            pathMatch: 'full'
+        },
+
+        {
               path: 'products',
               component: ProductsComponent
           }

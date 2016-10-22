@@ -13,7 +13,7 @@ var product_service_1 = require('./product.service');
 var ProductsComponent = (function () {
     function ProductsComponent(productService) {
         this.productService = productService;
-        this.title = 'Tour of Products:';
+        this.title = 'Tour of Products :';
     }
     ProductsComponent.prototype.getProducts = function () {
         var _this = this;

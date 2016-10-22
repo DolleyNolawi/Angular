@@ -12,15 +12,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var product_service_1 = require('./product.service');
 var DashboardComponent = (function () {
-    function DashboardComponent() {
+    function DashboardComponent(productService) {
+        this.productService = productService;
+        this.products = [];
     }
+    DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.productService.getProducts()
+            .then(function (products) { return _this.products = products.slice(1, 5); });
+    };
+    DashboardComponent.prototype.gotoDetail = function (product) { };
     DashboardComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'my-dashboard',
-            template: '<h3>My Dashboard</h3>'
+            templateUrl: 'dashboard.component.html',
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [product_service_1.ProductService])
     ], DashboardComponent);
     return DashboardComponent;
 }());

@@ -27,6 +27,19 @@ var AppModule = (function () {
                 forms_1.FormsModule,
                 router_1.RouterModule.forRoot([
                     {
+                        path: 'dashboard',
+                        component: dashboard_component_1.DashboardComponent
+                    },
+                    {
+                        path: 'detail/:id',
+                        component: product_detail_component_1.ProductDetailComponent
+                    },
+                    {
+                        path: '',
+                        redirectTo: '/dashboard',
+                        pathMatch: 'full'
+                    },
+                    {
                         path: 'products',
                         component: products_component_1.ProductsComponent
                     }

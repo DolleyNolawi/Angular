@@ -72,7 +72,7 @@ import { ProductService } from './product.service';
 
 })
 export class ProductsComponent implements OnInit{
-  title = 'Tour of Products:';
+  title = 'Tour of Products :';
     products : Product[];
     selectedProduct : Product;
 
