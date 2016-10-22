@@ -12,9 +12,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var product_service_1 = require('./product.service');
 var DashboardComponent = (function () {
-    function DashboardComponent(productService) {
+    function DashboardComponent(router, productService) {
+        this.router = router;
         this.productService = productService;
         this.products = [];
     }
@@ -23,14 +25,17 @@ var DashboardComponent = (function () {
         this.productService.getProducts()
             .then(function (products) { return _this.products = products.slice(1, 5); });
     };
-    DashboardComponent.prototype.gotoDetail = function (product) { };
+    DashboardComponent.prototype.gotoDetail = function (product) {
+        var link = ['/detail', product.id];
+        this.router.navigate(link);
+    };
     DashboardComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-dashboard',
             templateUrl: 'dashboard.component.html',
         }), 
-        __metadata('design:paramtypes', [product_service_1.ProductService])
+        __metadata('design:paramtypes', [router_1.Router, product_service_1.ProductService])
     ], DashboardComponent);
     return DashboardComponent;
 }());
