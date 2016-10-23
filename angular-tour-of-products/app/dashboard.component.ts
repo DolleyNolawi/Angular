@@ -12,7 +12,7 @@ import { ProductService } from './product.service';
     moduleId: module.id,
     selector: 'my-dashboard',
     templateUrl: 'dashboard.component.html',
-    // template: '<h3>My Dashboard</h3>'
+    styleUrls: [ 'dashboard.component.css' ]
 })
 export class DashboardComponent implements OnInit {
 
